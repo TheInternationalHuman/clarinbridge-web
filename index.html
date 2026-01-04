@@ -4,25 +4,41 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Clarinbridge Publishing | Official ISBNs</title>
+
     <script src="https://cdn.tailwindcss.com"></script>
+
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+
     <style>
         body { font-family: 'Inter', sans-serif; }
         .serif { font-family: 'Playfair Display', serif; }
-        .faq-answer { max-height: 0; overflow: hidden; transition: all 0.3s ease-in-out; opacity: 0; }
-        .faq-item.active .faq-answer { max-height: 300px; padding: 20px; opacity: 1; border-top: 1px solid rgba(255,255,255,0.1); }
-        .faq-item.active .faq-icon { transform: rotate(45deg); }
+        .faq-answer {
+            max-height: 0;
+            overflow: hidden;
+            transition: all 0.3s ease-in-out;
+            opacity: 0;
+        }
+        .faq-item.active .faq-answer {
+            max-height: 300px;
+            padding: 20px;
+            opacity: 1;
+            border-top: 1px solid rgba(255,255,255,0.1);
+        }
+        .faq-item.active .faq-icon {
+            transform: rotate(45deg);
+        }
     </style>
 </head>
+
 <body class="bg-white text-gray-900">
 
 <!-- Top Banner -->
 <header class="w-full bg-white shadow-md fixed top-0 left-0 z-50">
-  <div class="max-w-7xl mx-auto px-4 py-3">
-    <h1 class="serif text-[#0e380e] text-sm tracking-wide">
-      Clarinbridge Publishing
-    </h1>
-  </div>
+    <div class="max-w-7xl mx-auto px-4 py-3">
+        <h1 class="serif text-[#0e380e] text-sm tracking-wide">
+            Clarinbridge Publishing
+        </h1>
+    </div>
 </header>
 
 <!-- Hero Section -->
@@ -40,24 +56,97 @@
 <!-- Main Headline -->
 <div class="text-center py-16 px-4 max-w-4xl mx-auto">
     <h1 class="text-3xl md:text-5xl font-bold leading-tight tracking-tight">
-        Become a published author with an <br> internationally recognized ISBN!
+        Become a published author with an <br>
+        internationally recognized ISBN!
     </h1>
 </div>
 
 <!-- Pricing Section -->
-<section class="max-w-6xl mx-auto pb-20 px-4 grid md:grid-cols-3 gap-8">
+<section class="max-w-6xl mx-auto pb-24 px-4 grid md:grid-cols-3 gap-8">
     <div class="text-center p-10 border border-gray-100 rounded-2xl shadow-xl hover:shadow-2xl transition-shadow">
         <h2 class="text-4xl font-bold mb-2">$25 USD</h2>
-        <p class="text-gray-500 mb-8">Publish 1 book<br><span class="font-bold text-gray-800 text-sm">(1 ISBN)</span></p>
-        <a href="checkout.html" class="bg-[#C2B280] text-white px-12 py-3 rounded-md font-bold tracking-wide hover:bg-[#b0a070] transition-colors block">Submit Book</a>
+        <p class="text-gray-500 mb-8">
+            Publish 1 book<br>
+            <span class="font-bold text-gray-800 text-sm">(1 ISBN)</span>
+        </p>
+        <a href="checkout.html" class="bg-[#C2B280] text-white px-12 py-3 rounded-md font-bold tracking-wide hover:bg-[#b0a070] transition-colors block">
+            Submit Book
+        </a>
     </div>
+
     <div class="text-center p-10 border border-gray-100 rounded-2xl shadow-xl hover:shadow-2xl transition-shadow bg-gray-50/50">
         <h2 class="text-4xl font-bold mb-2">$45 USD</h2>
-        <p class="text-gray-500 mb-8">Publish 2 versions<br><span class="font-bold text-gray-800 text-sm">(2 ISBNs)</span></p>
-        <a href="checkout.html" class="bg-[#C2B280] text-white px-12 py-3 rounded-md font-bold tracking-wide hover:bg-[#b0a070] transition-colors block">Submit Book</a>
+        <p class="text-gray-500 mb-8">
+            Publish 2 versions<br>
+            <span class="font-bold text-gray-800 text-sm">(2 ISBNs)</span>
+        </p>
+        <a href="checkout.html" class="bg-[#C2B280] text-white px-12 py-3 rounded-md font-bold tracking-wide hover:bg-[#b0a070] transition-colors block">
+            Submit Book
+        </a>
     </div>
+
     <div class="text-center p-10 border border-gray-100 rounded-2xl shadow-xl hover:shadow-2xl transition-shadow">
         <h2 class="text-4xl font-bold mb-2">$80 USD</h2>
-        <p class="text-gray-500 mb-8">Publish 4 versions<br><span class="font-bold text-gray-800 text-sm">(4 ISBNs)</span></p>
-        <a href="checkout.html" class="bg-[#C2B280] text-white px-12 py-3 rounded-md font-bold tracking-wide hover:bg-[#b0a070] transition-colors block">Submit Book</a>
+        <p class="text-gray-500 mb-8">
+            Publish 4 versions<br>
+            <span class="font-bold text-gray-800 text-sm">(4 ISBNs)</span>
+        </p>
+        <a href="checkout.html" class="bg-[#C2B280] text-white px-12 py-3 rounded-md font-bold tracking-wide hover:bg-[#b0a070] transition-colors block">
+            Submit Book
+        </a>
+    </div>
+</section>
 
+<!-- Bottom Video Section -->
+<section class="max-w-4xl mx-auto px-4 pb-24 text-center">
+
+    <div class="mb-6 relative overflow-hidden rounded-xl shadow-lg transition-all duration-300"
+         style="padding-top: 56.25%;"
+         id="home-video-container">
+
+        <iframe
+            class="absolute top-0 left-0 w-full h-full rounded-xl"
+            src="https://www.youtube.com/embed/OZI7jktGCWM?rel=0&modestbranding=1"
+            title="Clarinbridge Publishing Video"
+            frameborder="0"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+            allowfullscreen>
+        </iframe>
+
+        <div class="absolute inset-0 bg-black bg-opacity-20 rounded-xl pointer-events-none"></div>
+
+        <div id="home-play-overlay"
+             class="absolute inset-0 flex items-center justify-center pointer-events-none transition-opacity duration-300">
+            <div class="w-16 h-16 bg-white bg-opacity-80 rounded-full flex items-center justify-center shadow-lg animate-pulse">
+                <svg class="w-8 h-8 text-red-600 ml-1" fill="currentColor" viewBox="0 0 24 24">
+                    <path d="M4 2v20l18-10L4 2z"></path>
+                </svg>
+            </div>
+        </div>
+    </div>
+
+    <p class="text-gray-600 text-sm md:text-base">
+        If you have questions, please email us at
+        <a href="mailto:hello@ClarinbridgePublishing.com"
+           class="font-semibold text-gray-900 hover:underline">
+            hello@ClarinbridgePublishing.com
+        </a>
+    </p>
+
+</section>
+
+<script>
+    const homeContainer = document.getElementById('home-video-container');
+    const homeOverlay = document.getElementById('home-play-overlay');
+
+    homeContainer.addEventListener('mouseenter', () => {
+        homeOverlay.style.opacity = '0';
+    });
+
+    homeContainer.addEventListener('click', () => {
+        homeOverlay.style.opacity = '0';
+    });
+</script>
+
+</body>
+</html>
