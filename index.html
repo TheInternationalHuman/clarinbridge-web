@@ -17,82 +17,46 @@
 <body class="bg-white text-gray-900">
 
 <!-- Top Banner -->
-<header class="w-full bg-white shadow-md">
+<header class="w-full bg-white shadow-md fixed top-0 left-0 z-50">
   <div class="max-w-7xl mx-auto px-4 py-3">
     <h1 class="serif text-[#0e380e] text-sm tracking-wide">
       Clarinbridge Publishing
     </h1>
   </div>
-    <section class="relative h-[550px] flex items-start justify-center text-white text-center pt-16">
-        <img src="hero.png" class="absolute inset-0 w-full h-full object-cover" alt="Hero Background">
-        <div class="relative z-10 px-4">
-            <div class="bg-black/30 backdrop-blur-md px-6 py-2 rounded border border-white/20 inline-block shadow-2xl">
-                <p class="text-xs md:text-sm tracking-widest uppercase font-semibold text-white">The safest & most trustworthy option for obtaining your official ISBN</p>
-            </div>
-        </div>
-    </section>
+</header>
 
-    <div class="text-center py-16 px-4">
-        <h1 class="text-3xl md:text-5xl font-bold leading-tight tracking-tight">Become a published author with an <br> internationally recognized ISBN!</h1>
+<!-- Hero Section -->
+<section class="relative w-full h-[400px] md:h-[550px] lg:h-[600px] mt-12 md:mt-16">
+    <img src="hero.png" class="absolute inset-0 w-full h-full object-cover" alt="Hero Background">
+    <div class="relative z-10 flex items-start justify-center text-center pt-16 px-4">
+        <div class="bg-black/30 backdrop-blur-md px-6 py-2 rounded border border-white/20 inline-block shadow-2xl">
+            <p class="text-xs md:text-sm tracking-widest uppercase font-semibold text-white">
+                The safest & most trustworthy option for obtaining your official ISBN
+            </p>
+        </div>
     </div>
+</section>
 
-    <section class="max-w-6xl mx-auto pb-20 px-4 grid md:grid-cols-3 gap-8">
-        <div class="text-center p-10 border border-gray-100 rounded-2xl shadow-xl hover:shadow-2xl transition-shadow">
-            <h2 class="text-4xl font-bold mb-2">$25 USD</h2>
-            <p class="text-gray-500 mb-8">Publish 1 book<br><span class="font-bold text-gray-800 text-sm">(1 ISBN)</span></p>
-            <a href="checkout.html" class="bg-[#C2B280] text-white px-12 py-3 rounded-md font-bold tracking-wide hover:bg-[#b0a070] transition-colors block">Submit Book</a>
-        </div>
-        <div class="text-center p-10 border border-gray-100 rounded-2xl shadow-xl hover:shadow-2xl transition-shadow bg-gray-50/50">
-            <h2 class="text-4xl font-bold mb-2">$45 USD</h2>
-            <p class="text-gray-500 mb-8">Publish 2 versions<br><span class="font-bold text-gray-800 text-sm">(2 ISBNs)</span></p>
-            <a href="checkout.html" class="bg-[#C2B280] text-white px-12 py-3 rounded-md font-bold tracking-wide hover:bg-[#b0a070] transition-colors block">Submit Book</a>
-        </div>
-        <div class="text-center p-10 border border-gray-100 rounded-2xl shadow-xl hover:shadow-2xl transition-shadow">
-            <h2 class="text-4xl font-bold mb-2">$80 USD</h2>
-            <p class="text-gray-500 mb-8">Publish 4 versions<br><span class="font-bold text-gray-800 text-sm">(4 ISBNs)</span></p>
-            <a href="checkout.html" class="bg-[#C2B280] text-white px-12 py-3 rounded-md font-bold tracking-wide hover:bg-[#b0a070] transition-colors block">Submit Book</a>
-        </div>
-    </section>
+<!-- Main Headline -->
+<div class="text-center py-16 px-4 max-w-4xl mx-auto">
+    <h1 class="text-3xl md:text-5xl font-bold leading-tight tracking-tight">
+        Become a published author with an <br> internationally recognized ISBN!
+    </h1>
+</div>
 
-    <section class="max-w-4xl mx-auto text-center py-12 px-6">
-        <h2 class="text-3xl font-bold mb-8">Why Choose Clarinbridge Publishing?</h2>
-        <p class="text-gray-600 leading-relaxed text-lg">
-            When comparing <strong>Clarinbridge Publishing</strong> with other options, you’ll find that our streamlined approach to becoming an official published author is in a class of its own. By partnering with a legitimate book publisher to obtain your internationally recognized ISBN, you <strong>avoid the sketchy ISBN resellers</strong> and ensure your work hits the global market safely and with the professional credibility it deserves.
-        </p>
-    </section>
-
-    <section class="max-w-4xl mx-auto py-20 px-4">
-        <h2 class="text-4xl serif text-center mb-12">Frequently Asked Questions</h2>
-        <div class="space-y-4">
-            <div class="faq-item bg-[#2D5A27] text-white rounded-lg cursor-pointer" onclick="toggleFaq(this)">
-                <div class="flex justify-between items-center p-5 font-semibold">
-                    <span>What is an ISBN?</span>
-                    <span class="faq-icon text-2xl">+</span>
-                </div>
-                <div class="faq-answer bg-white text-gray-700">
-                    An ISBN (International Standard Book Number) is a unique 13-digit commercial identifier for books. It allows bookstores, libraries, and distributors to find and track your specific title and edition worldwide.
-                </div>
-            </div>
-
-            <div class="faq-item bg-[#2D5A27] text-white rounded-lg cursor-pointer" onclick="toggleFaq(this)">
-                <div class="flex justify-between items-center p-5 font-semibold">
-                    <span>Is an ISBN required to publish a book?</span>
-                    <span class="faq-icon text-2xl">+</span>
-                </div>
-                <div class="faq-answer bg-white text-gray-700">
-                    If you plan to sell your book in retail stores, libraries, or through major online retailers like Amazon or Barnes & Noble, an ISBN is required. It is the industry standard for book identification.
-                </div>
-            </div>
-
-            <div class="faq-item bg-[#2D5A27] text-white rounded-lg cursor-pointer" onclick="toggleFaq(this)">
-                <div class="flex justify-between items-center p-5 font-semibold">
-                    <span>Will I retain 100% of my book's royalties?</span>
-                    <span class="faq-icon text-2xl">+</span>
-                </div>
-                <div class="faq-answer bg-white text-gray-700">
-                    Absolutely. Unlike some vanity presses, we do not take any portion of your royalties. You own the content, and you keep all the earnings from your book sales.
-                </div>
-
-            </div>
-
-
+<!-- Pricing Section -->
+<section class="max-w-6xl mx-auto pb-20 px-4 grid md:grid-cols-3 gap-8">
+    <div class="text-center p-10 border border-gray-100 rounded-2xl shadow-xl hover:shadow-2xl transition-shadow">
+        <h2 class="text-4xl font-bold mb-2">$25 USD</h2>
+        <p class="text-gray-500 mb-8">Publish 1 book<br><span class="font-bold text-gray-800 text-sm">(1 ISBN)</span></p>
+        <a href="checkout.html" class="bg-[#C2B280] text-white px-12 py-3 rounded-md font-bold tracking-wide hover:bg-[#b0a070] transition-colors block">Submit Book</a>
+    </div>
+    <div class="text-center p-10 border border-gray-100 rounded-2xl shadow-xl hover:shadow-2xl transition-shadow bg-gray-50/50">
+        <h2 class="text-4xl font-bold mb-2">$45 USD</h2>
+        <p class="text-gray-500 mb-8">Publish 2 versions<br><span class="font-bold text-gray-800 text-sm">(2 ISBNs)</span></p>
+        <a href="checkout.html" class="bg-[#C2B280] text-white px-12 py-3 rounded-md font-bold tracking-wide hover:bg-[#b0a070] transition-colors block">Submit Book</a>
+    </div>
+    <div class="text-center p-10 border border-gray-100 rounded-2xl shadow-xl hover:shadow-2xl transition-shadow">
+        <h2 class="text-4xl font-bold mb-2">$80 USD</h2>
+        <p class="text-gray-500 mb-8">Publish 4 versions<br><span class="font-bold text-gray-800 text-sm">(4 ISBNs)</span></p>
+        <a href="checkout.html" class="bg-[#C2B280] text-white px-12 py-3 rounded-md fon
