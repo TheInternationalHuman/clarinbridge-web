@@ -9,20 +9,47 @@
 <body class="bg-gray-50 flex items-center justify-center min-h-screen p-6">
     <div class="max-w-xl bg-white p-10 rounded-2xl shadow-xl border border-gray-100 text-center">
         <h1 class="text-2xl font-bold mb-6 text-gray-900">Big Changes This Week</h1>
+
+        <!-- Responsive YouTube Embed with Overlay & Spacing Refinement -->
+        <div class="mb-8 relative overflow-hidden rounded-xl shadow-lg hover:shadow-2xl transition-all duration-300 group" style="padding-top: 56.25%;">
+            <iframe class="absolute top-0 left-0 w-full h-full rounded-xl"
+                src="https://www.youtube.com/embed/vtHL5voLSnc"
+                title="YouTube video"
+                frameborder="0"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                allowfullscreen>
+            </iframe>
+
+            <!-- Dark Overlay Behind Play Button -->
+            <div class="absolute inset-0 bg-black bg-opacity-20 rounded-xl pointer-events-none"></div>
+
+            <!-- Play Button Overlay -->
+            <div class="absolute inset-0 flex items-center justify-center pointer-events-none transition-opacity duration-300 opacity-100 group-hover:opacity-0">
+                <div class="w-16 h-16 bg-white bg-opacity-80 rounded-full flex items-center justify-center shadow-lg animate-pulse">
+                    <svg class="w-8 h-8 text-red-600 ml-1" fill="currentColor" viewBox="0 0 24 24">
+                        <path d="M4 2v20l18-10L4 2z"></path>
+                    </svg>
+                </div>
+            </div>
+        </div>
+
         <p class="text-gray-600 mb-6 leading-relaxed">
             We're renovating our website to serve you better! <strong> While our purchase flow is being updated, we're using an alternative checkout process for the next few days.</strong> Best of all? You'll have a real human helping you every step of the way!
+        </p>
+
         <div class="bg-blue-50 border-l-4 border-blue-500 p-4 mb-8 text-left">
             <p class="text-blue-800 font-medium">
                 One quick step <strong>to move forward:</strong> please email or text us and we’ll personally help you reserve your ISBN and complete your purchase online.
             </p>
         </div>
+
         <div class="bg-gray-50 p-8 rounded-xl text-left border border-gray-200">
             <p class="font-bold text-xl text-gray-800">Zack</p>
             <p class="text-gray-500 mb-6 uppercase tracking-widest text-xs font-semibold">Co-Founder</p>
             <div class="space-y-3">
                 <p class="flex items-center">
                     <span class="mr-3">📧</span>
-                    <a href="mailto:hello@clarinbridgepublishing.com" class="text-blue-600 font-semibold hover:underline">hello@clarinbridgepublishing.com</a>
+                    <a href="mailto: zack@clarinbridgepublishing.com" class="text-blue-600 font-semibold hover:underline">zack@clarinbridgepublishing.com</a>
                 </p>
                 <p class="flex items-center text-gray-700">
                     <span class="mr-3">📱</span>
@@ -30,12 +57,13 @@
                 </p>
             </div>
         </div>
+
         <p class="mt-8 text-sm text-gray-400 italic">Feel free to contact with any questions you may have.</p>
         <a href="index.html" class="mt-10 inline-block text-gray-400 hover:text-gray-800 transition">← Back to website</a>
     </div>
 </body>
-
 </html>
+
 
 
 
