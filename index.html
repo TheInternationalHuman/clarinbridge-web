@@ -135,17 +135,16 @@
         </div>
 
     </div>
-</section> <!-- End Pricing Section -->
+</section>
 
-<!-- Premium Video Section -->
+<!-- Video Section -->
 <section class="py-24 bg-white">
     <div class="max-w-4xl mx-auto px-6 text-center">
-        <div class="relative group">
+        <div class="relative group w-full h-[360px] md:h-[480px] rounded-3xl overflow-hidden shadow-2xl">
             <img src="https://img.youtube.com/vi/OZI7jktGCWM/maxresdefault.jpg" 
                  alt="Watch a Clarinbridge Publishing walkthrough video" 
-                 class="w-full rounded-3xl shadow-2xl object-cover cursor-pointer transition-transform duration-300 group-hover:scale-105 group-hover:brightness-110" 
+                 class="w-full h-full object-cover cursor-pointer" 
                  id="videoThumbnail">
-            
             <div class="absolute inset-0 flex items-center justify-center">
                 <button id="playButton" 
                         class="bg-gradient-to-tr from-[#C2B280] to-[#b0a070] text-white p-6 rounded-full shadow-2xl pulse-animation flex items-center justify-center">
@@ -156,7 +155,7 @@
             </div>
         </div>
     </div>
-</section> <!-- End Video Section -->
+</section>
 
 <!-- Footer -->
 <footer class="bg-[#0e380e] text-white py-12 px-6">
@@ -193,10 +192,12 @@
         iframe.src = "https://www.youtube.com/embed/OZI7jktGCWM?autoplay=1&rel=0";
         iframe.allow = "accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture";
         iframe.allowFullscreen = true;
-        iframe.className = "w-full h-[360px] md:h-[480px] rounded-3xl shadow-2xl";
+        iframe.className = "w-full h-full rounded-3xl shadow-2xl";
 
-        videoThumbnail.parentNode.innerHTML = "";
-        videoThumbnail.parentNode.appendChild(iframe);
+        // Replace thumbnail + button while keeping container intact
+        const container = videoThumbnail.parentNode;
+        container.innerHTML = "";
+        container.appendChild(iframe);
     });
 </script>
 
