@@ -31,7 +31,7 @@
             font-size: 0.8rem;
         }
 
-        /* FAQ styles (unchanged) */
+        /* FAQ styles */
         .faq-answer {
             max-height: 0;
             overflow: hidden;
@@ -46,6 +46,15 @@
         }
         .faq-item.active .faq-icon {
             transform: rotate(45deg);
+        }
+
+        /* Premium Play Button Pulse Animation */
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); box-shadow: 0 0 30px rgba(194,178,128,0.6); }
+            50% { transform: scale(1.05); box-shadow: 0 0 45px rgba(194,178,128,0.9); }
+        }
+        .pulse-animation {
+            animation: pulse 2s infinite;
         }
     </style>
 </head>
@@ -126,14 +135,35 @@
         </div>
 
     </div>
-</section>
+</section> <!-- End Pricing Section -->
+
+<!-- Premium Video Section -->
+<section class="py-24 bg-white">
+    <div class="max-w-4xl mx-auto px-6 text-center">
+        <div class="relative group">
+            <img src="https://img.youtube.com/vi/OZI7jktGCWM/maxresdefault.jpg" 
+                 alt="Watch a Clarinbridge Publishing walkthrough video" 
+                 class="w-full rounded-3xl shadow-2xl object-cover cursor-pointer transition-transform duration-300 group-hover:scale-105 group-hover:brightness-110" 
+                 id="videoThumbnail">
+            
+            <div class="absolute inset-0 flex items-center justify-center">
+                <button id="playButton" 
+                        class="bg-gradient-to-tr from-[#C2B280] to-[#b0a070] text-white p-6 rounded-full shadow-2xl pulse-animation flex items-center justify-center">
+                    <svg class="w-10 h-10 md:w-12 md:h-12" fill="currentColor" viewBox="0 0 24 24">
+                        <path d="M4 2v20l18-10L4 2z"/>
+                    </svg>
+                </button>
+            </div>
+        </div>
+    </div>
+</section> <!-- End Video Section -->
 
 <!-- Footer -->
 <footer class="bg-[#0e380e] text-white py-12 px-6">
     <div class="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center space-y-6 md:space-y-0">
         <div class="text-center md:text-left">
             <p class="serif text-lg font-bold tracking-wider">Clarinbridge Publishing</p>
-            <p class="text-gray-400 text-xs mt-1">© 2026 Official ISBN Services. All rights reserved.</p>
+            <p class="text-gray-400 text-xs mt-1">© 2026 Clarinbridge Publishing Services. All rights reserved.</p>
         </div>
 
         <div class="flex space-x-8 text-sm font-medium">
@@ -143,7 +173,7 @@
     </div>
 </footer>
 
-<!-- Header shrink on scroll -->
+<!-- Scripts -->
 <script>
     const header = document.getElementById('siteHeader');
     window.addEventListener('scroll', () => {
@@ -152,6 +182,21 @@
         } else {
             header.classList.remove('shrink');
         }
+    });
+
+    // Video Play Script
+    const playButton = document.getElementById('playButton');
+    const videoThumbnail = document.getElementById('videoThumbnail');
+
+    playButton.addEventListener('click', () => {
+        const iframe = document.createElement('iframe');
+        iframe.src = "https://www.youtube.com/embed/OZI7jktGCWM?autoplay=1&rel=0";
+        iframe.allow = "accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture";
+        iframe.allowFullscreen = true;
+        iframe.className = "w-full h-[360px] md:h-[480px] rounded-3xl shadow-2xl";
+
+        videoThumbnail.parentNode.innerHTML = "";
+        videoThumbnail.parentNode.appendChild(iframe);
     });
 </script>
 
