@@ -11,29 +11,28 @@
 
     <style>
         body { font-family: 'Inter', sans-serif; }
-
-        /* Explicit font locks */
-        .brand {
-            font-family: 'Playfair Display', serif;
-            font-weight: 700;
-        }
-
-        .phone {
-            font-family: 'Inter', sans-serif;
-            font-weight: 600;
-        }
+        .serif { font-family: 'Playfair Display', serif; }
 
         /* Header behavior */
         .site-header {
-            transition: background-color 0.25s ease, border-bottom 0.25s ease;
+            transition: all 0.25s ease;
             border-bottom: none;
         }
 
+        /* 🔒 Header stays exactly the same, no visual changes */
+        /* .shrink class no longer needed, but if applied, does nothing */
         .site-header.shrink {
-            padding-top: 0.5rem;
-            padding-bottom: 0.5rem;
-            background-color: rgba(255,255,255,0.98);
-            border-bottom: 1px solid rgba(0,0,0,0.08);
+            padding-top: inherit;
+            padding-bottom: inherit;
+            background-color: inherit;
+            border-bottom: none;
+        }
+
+        .site-header.shrink .brand,
+        .site-header.shrink .phone {
+            font-size: inherit;
+            font-family: inherit;
+            color: inherit;
         }
 
         /* FAQ styles */
@@ -43,14 +42,12 @@
             transition: all 0.3s ease-in-out;
             opacity: 0;
         }
-
         .faq-item.active .faq-answer {
             max-height: 300px;
             padding: 20px;
             opacity: 1;
             border-top: 1px solid rgba(255,255,255,0.1);
         }
-
         .faq-item.active .faq-icon {
             transform: rotate(45deg);
         }
@@ -60,7 +57,6 @@
             0%, 100% { transform: scale(1); box-shadow: 0 0 30px rgba(194,178,128,0.6); }
             50% { transform: scale(1.05); box-shadow: 0 0 45px rgba(194,178,128,0.9); }
         }
-
         .pulse-animation {
             animation: pulse 2s infinite;
         }
@@ -72,11 +68,11 @@
 <!-- Header -->
 <header id="siteHeader" class="site-header w-full bg-white/90 backdrop-blur-md fixed top-0 left-0 z-50">
     <div class="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
-        <h1 class="brand text-[#0e380e] text-base tracking-widest uppercase">
+        <h1 class="brand serif text-[#0e380e] text-base tracking-widest uppercase">
             Clarinbridge Publishing
         </h1>
 
-        <a href="tel:+1234567890" class="phone text-sm text-gray-700 hover:text-[#0e380e] transition-colors">
+        <a href="tel:+1234567890" class="phone text-sm font-semibold text-gray-700 hover:text-[#0e380e] transition-colors">
             Text or call today: <span class="text-[#0e380e]">+1 (972) 836-9225</span>
         </a>
     </div>
@@ -84,7 +80,7 @@
 
 <!-- Hero -->
 <section class="relative w-full h-[400px] md:h-[550px] lg:h-[650px] mt-16">
-    <img src="hero.png" class="absolute inset-0 w-full h-full object-cover" alt="">
+    <img src="hero.png" class="absolute inset-0 w-full h-full object-cover" alt="Open book on a wooden table representing the beginning of a publishing journey">
     <div class="absolute inset-0 bg-black/10"></div>
 
     <div class="relative z-10 flex items-start justify-center text-center pt-20 px-4">
@@ -98,7 +94,7 @@
 
 <!-- Headline -->
 <div class="text-center py-24 px-4 max-w-5xl mx-auto">
-    <h2 class="brand text-4xl md:text-6xl leading-tight tracking-tight text-gray-900">
+    <h2 class="serif text-4xl md:text-6xl font-bold leading-tight tracking-tight text-gray-900">
         Become a published author with an <br class="hidden md:block">
         internationally recognized ISBN
     </h2>
@@ -108,7 +104,40 @@
 <!-- Pricing -->
 <section class="bg-gray-50/80 border-y border-gray-100 py-24">
     <div class="max-w-6xl mx-auto px-6 grid md:grid-cols-3 gap-10">
-        <!-- unchanged pricing cards -->
+
+        <div class="bg-white text-center p-10 rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-1">
+            <h3 class="text-4xl font-bold mb-2 text-gray-900">$25 USD</h3>
+            <p class="text-gray-500 mb-8 leading-relaxed">
+                Publish 1 book<br>
+                <span class="font-bold text-[#0e380e] text-sm uppercase tracking-tighter">(1 ISBN)</span>
+            </p>
+            <a href="checkout.html" class="bg-[#C2B280] text-white px-12 py-4 rounded-md font-bold tracking-wide hover:bg-[#b0a070] transition-colors block shadow-md">
+                Submit Book
+            </a>
+        </div>
+
+        <div class="bg-white text-center p-10 rounded-2xl shadow-xl hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-1 ring-2 ring-[#C2B280]/20">
+            <h3 class="text-4xl font-bold mb-2 text-gray-900">$45 USD</h3>
+            <p class="text-gray-500 mb-8 leading-relaxed">
+                Publish 2 versions<br>
+                <span class="font-bold text-[#0e380e] text-sm uppercase tracking-tighter">(2 ISBNs)</span>
+            </p>
+            <a href="checkout.html" class="bg-[#0e380e] text-white px-12 py-4 rounded-md font-bold tracking-wide hover:bg-[#0a290a] transition-colors block shadow-md">
+                Submit Book
+            </a>
+        </div>
+
+        <div class="bg-white text-center p-10 rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-1">
+            <h3 class="text-4xl font-bold mb-2 text-gray-900">$80 USD</h3>
+            <p class="text-gray-500 mb-8 leading-relaxed">
+                Publish 4 versions<br>
+                <span class="font-bold text-[#0e380e] text-sm uppercase tracking-tighter">(4 ISBNs)</span>
+            </p>
+            <a href="checkout.html" class="bg-[#C2B280] text-white px-12 py-4 rounded-md font-bold tracking-wide hover:bg-[#b0a070] transition-colors block shadow-md">
+                Submit Book
+            </a>
+        </div>
+
     </div>
 </section>
 
@@ -116,12 +145,13 @@
 <section class="py-24 bg-white">
     <div class="max-w-4xl mx-auto px-6 text-center">
         <div class="relative group w-full h-[360px] md:h-[480px] rounded-3xl overflow-hidden shadow-2xl">
-            <img src="https://img.youtube.com/vi/OZI7jktGCWM/maxresdefault.jpg"
-                 class="w-full h-full object-cover cursor-pointer"
+            <img src="https://img.youtube.com/vi/OZI7jktGCWM/maxresdefault.jpg" 
+                 alt="Watch a Clarinbridge Publishing walkthrough video" 
+                 class="w-full h-full object-cover cursor-pointer" 
                  id="videoThumbnail">
             <div class="absolute inset-0 flex items-center justify-center">
-                <button id="playButton"
-                        class="bg-gradient-to-tr from-[#C2B280] to-[#b0a070] text-white p-6 rounded-full shadow-2xl pulse-animation">
+                <button id="playButton" 
+                        class="bg-gradient-to-tr from-[#C2B280] to-[#b0a070] text-white p-6 rounded-full shadow-2xl pulse-animation flex items-center justify-center">
                     <svg class="w-10 h-10 md:w-12 md:h-12" fill="currentColor" viewBox="0 0 24 24">
                         <path d="M4 2v20l18-10L4 2z"/>
                     </svg>
@@ -135,7 +165,7 @@
 <footer class="bg-[#0e380e] text-white py-12 px-6">
     <div class="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center space-y-6 md:space-y-0">
         <div class="text-center md:text-left">
-            <p class="brand text-lg tracking-wider">Clarinbridge Publishing</p>
+            <p class="serif text-lg font-bold tracking-wider">Clarinbridge Publishing</p>
             <p class="text-gray-400 text-xs mt-1">© 2026 Clarinbridge Publishing Services. All rights reserved.</p>
         </div>
 
@@ -146,16 +176,9 @@
     </div>
 </footer>
 
+<!-- Scripts -->
 <script>
-    const header = document.getElementById('siteHeader');
-    window.addEventListener('scroll', () => {
-        if (window.scrollY > 60) {
-            header.classList.add('shrink');
-        } else {
-            header.classList.remove('shrink');
-        }
-    });
-
+    // Video Play Script
     const playButton = document.getElementById('playButton');
     const videoThumbnail = document.getElementById('videoThumbnail');
 
@@ -166,6 +189,7 @@
         iframe.allowFullscreen = true;
         iframe.className = "w-full h-full rounded-3xl shadow-2xl";
 
+        // Replace thumbnail + button while keeping container intact
         const container = videoThumbnail.parentNode;
         container.innerHTML = "";
         container.appendChild(iframe);
