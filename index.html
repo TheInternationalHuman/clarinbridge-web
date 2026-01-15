@@ -11,11 +11,21 @@
 
     <style>
         body { font-family: 'Inter', sans-serif; }
-        .serif { font-family: 'Playfair Display', serif; }
+
+        /* Explicit font locks */
+        .brand {
+            font-family: 'Playfair Display', serif;
+            font-weight: 700;
+        }
+
+        .phone {
+            font-family: 'Inter', sans-serif;
+            font-weight: 600;
+        }
 
         /* Header behavior */
         .site-header {
-            transition: all 0.25s ease;
+            transition: background-color 0.25s ease, border-bottom 0.25s ease;
             border-bottom: none;
         }
 
@@ -24,27 +34,6 @@
             padding-bottom: 0.5rem;
             background-color: rgba(255,255,255,0.98);
             border-bottom: 1px solid rgba(0,0,0,0.08);
-        }
-
-        /* 🔒 LOCK HEADER FONT RENDERING (FIX) */
-        .site-header,
-        .site-header * {
-            font-family: 'Playfair Display', serif;
-            -webkit-font-smoothing: antialiased;
-            -moz-osx-font-smoothing: grayscale;
-            text-rendering: optimizeLegibility;
-        }
-
-        /* Replace font-size shrink with scale shrink (prevents blur) */
-        .site-header.shrink .brand,
-        .site-header.shrink .phone {
-            transform: scale(0.9);
-        }
-
-        .brand,
-        .phone {
-            transition: transform 0.25s ease, color 0.25s ease;
-            transform-origin: left center;
         }
 
         /* FAQ styles */
@@ -83,12 +72,12 @@
 <!-- Header -->
 <header id="siteHeader" class="site-header w-full bg-white/90 backdrop-blur-md fixed top-0 left-0 z-50">
     <div class="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
-        <h1 class="brand serif text-[#0e380e] text-base tracking-widest uppercase">
+        <h1 class="brand text-[#0e380e] text-base tracking-widest uppercase">
             Clarinbridge Publishing
         </h1>
 
-        <a href="tel:+1234567890" class="phone text-sm font-semibold text-gray-700 hover:text-[#0e380e] transition-colors">
-            Text me or call me today: <span class="text-[#0e380e]">+1 (972) 836-9225</span>
+        <a href="tel:+1234567890" class="phone text-sm text-gray-700 hover:text-[#0e380e] transition-colors">
+            Text or call today: <span class="text-[#0e380e]">+1 (972) 836-9225</span>
         </a>
     </div>
 </header>
@@ -109,7 +98,7 @@
 
 <!-- Headline -->
 <div class="text-center py-24 px-4 max-w-5xl mx-auto">
-    <h2 class="serif text-4xl md:text-6xl font-bold leading-tight tracking-tight text-gray-900">
+    <h2 class="brand text-4xl md:text-6xl leading-tight tracking-tight text-gray-900">
         Become a published author with an <br class="hidden md:block">
         internationally recognized ISBN
     </h2>
@@ -119,7 +108,7 @@
 <!-- Pricing -->
 <section class="bg-gray-50/80 border-y border-gray-100 py-24">
     <div class="max-w-6xl mx-auto px-6 grid md:grid-cols-3 gap-10">
-        <!-- cards unchanged -->
+        <!-- unchanged pricing cards -->
     </div>
 </section>
 
@@ -127,9 +116,12 @@
 <section class="py-24 bg-white">
     <div class="max-w-4xl mx-auto px-6 text-center">
         <div class="relative group w-full h-[360px] md:h-[480px] rounded-3xl overflow-hidden shadow-2xl">
-            <img src="https://img.youtube.com/vi/OZI7jktGCWM/maxresdefault.jpg" class="w-full h-full object-cover cursor-pointer" id="videoThumbnail">
+            <img src="https://img.youtube.com/vi/OZI7jktGCWM/maxresdefault.jpg"
+                 class="w-full h-full object-cover cursor-pointer"
+                 id="videoThumbnail">
             <div class="absolute inset-0 flex items-center justify-center">
-                <button id="playButton" class="bg-gradient-to-tr from-[#C2B280] to-[#b0a070] text-white p-6 rounded-full shadow-2xl pulse-animation">
+                <button id="playButton"
+                        class="bg-gradient-to-tr from-[#C2B280] to-[#b0a070] text-white p-6 rounded-full shadow-2xl pulse-animation">
                     <svg class="w-10 h-10 md:w-12 md:h-12" fill="currentColor" viewBox="0 0 24 24">
                         <path d="M4 2v20l18-10L4 2z"/>
                     </svg>
@@ -141,10 +133,15 @@
 
 <!-- Footer -->
 <footer class="bg-[#0e380e] text-white py-12 px-6">
-    <div class="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center">
-        <div>
-            <p class="serif text-lg font-bold tracking-wider">Clarinbridge Publishing</p>
+    <div class="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center space-y-6 md:space-y-0">
+        <div class="text-center md:text-left">
+            <p class="brand text-lg tracking-wider">Clarinbridge Publishing</p>
             <p class="text-gray-400 text-xs mt-1">© 2026 Clarinbridge Publishing Services. All rights reserved.</p>
+        </div>
+
+        <div class="flex space-x-8 text-sm font-medium">
+            <a href="privacy.html" class="text-gray-300 hover:text-[#C2B280] transition-colors">Privacy Policy</a>
+            <a href="mailto:hello@ClarinbridgePublishing.com" class="text-gray-300 hover:text-[#C2B280] transition-colors">Contact</a>
         </div>
     </div>
 </footer>
