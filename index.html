@@ -17,7 +17,6 @@
     <style>
         body { font-family: 'Inter', sans-serif; }
         .serif { font-family: 'Playfair Display', serif; }
-        .site-header { transition: all 0.25s ease; }
         
         @keyframes pulse {
             0%, 100% { transform: scale(1); box-shadow: 0 0 30px rgba(194,178,128,0.6); }
@@ -26,6 +25,7 @@
         .pulse-animation { animation: pulse 2s infinite; }
         .isbn-glow { text-shadow: 0 0 12px rgba(194, 178, 128, 0.4); }
 
+        /* Mobile Header Protection */
         @media (max-width: 400px) {
             .brand-text { font-size: 0.7rem !important; letter-spacing: 0.1em !important; }
             .phone-text { font-size: 0.65rem !important; }
@@ -36,7 +36,7 @@
 
 <body class="bg-white text-gray-900 antialiased overflow-x-hidden">
 
-<header id="siteHeader" class="site-header w-full bg-white/95 backdrop-blur-sm fixed top-0 left-0 z-50 border-b border-gray-100">
+<header class="w-full bg-white/95 backdrop-blur-sm fixed top-0 left-0 z-50 border-b border-gray-100">
     <div class="header-container max-w-7xl mx-auto px-6 py-3 md:py-4 flex items-center justify-between">
         <h1 class="brand-text serif text-[#0e380e] text-sm md:text-lg tracking-widest uppercase">
             Clarinbridge Publishing
@@ -48,7 +48,7 @@
 </header>
 
 <section class="relative w-full h-[380px] md:h-[550px] lg:h-[650px] mt-12 md:mt-16">
-    <img src="hero.png" class="absolute inset-0 w-full h-full object-cover" alt="Author standing on a mountain" fetchpriority="high" loading="eager">
+    <img src="hero.png" class="absolute inset-0 w-full h-full object-cover" alt="Author on mountain" fetchpriority="high">
     <div class="absolute inset-0 bg-black/10"></div>
     <div class="relative z-10 flex items-start justify-center text-center pt-10 md:pt-20 px-4">
         <div class="bg-black/50 backdrop-blur-md px-6 md:px-8 py-3 rounded border border-white/20 inline-block shadow-2xl">
@@ -71,19 +71,19 @@
 
 <section class="bg-gray-50/80 border-y border-gray-100 pt-8 pb-16 md:py-24">
     <div class="max-w-6xl mx-auto px-6 grid md:grid-cols-3 gap-10">
-        <div class="bg-white text-center p-10 rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-300">
+        <div class="bg-white text-center p-10 rounded-2xl shadow-lg transition-all">
             <h3 class="text-4xl font-bold mb-2 text-gray-900">$25 USD</h3>
-            <p class="text-gray-500 mb-8 leading-relaxed">Publish 1 book<br><span class="font-bold text-[#0e380e] text-sm uppercase tracking-tighter">(1 ISBN)</span></p>
+            <p class="text-gray-500 mb-8 leading-relaxed text-sm">Publish 1 book<br><span class="font-bold text-[#0e380e] uppercase tracking-tighter">(1 ISBN)</span></p>
             <a href="checkout.html" class="bg-[#C2B280] text-white px-12 py-4 rounded-md font-bold hover:bg-[#b0a070] transition-colors block shadow-md">Submit Book</a>
         </div>
-        <div class="bg-white text-center p-10 rounded-2xl shadow-xl ring-2 ring-[#C2B280]/20 transition-all duration-300">
+        <div class="bg-white text-center p-10 rounded-2xl shadow-xl ring-2 ring-[#C2B280]/20 transition-all">
             <h3 class="text-4xl font-bold mb-2 text-gray-900">$45 USD</h3>
-            <p class="text-gray-500 mb-8 leading-relaxed">Publish 2 versions<br><span class="font-bold text-[#0e380e] text-sm uppercase tracking-tighter">(2 ISBNs)</span></p>
+            <p class="text-gray-500 mb-8 leading-relaxed text-sm">Publish 2 versions<br><span class="font-bold text-[#0e380e] uppercase tracking-tighter">(2 ISBNs)</span></p>
             <a href="checkout.html" class="bg-[#0e380e] text-white px-12 py-4 rounded-md font-bold hover:bg-[#0a290a] transition-colors block shadow-md">Submit Book</a>
         </div>
-        <div class="bg-white text-center p-10 rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-300">
+        <div class="bg-white text-center p-10 rounded-2xl shadow-lg transition-all">
             <h3 class="text-4xl font-bold mb-2 text-gray-900">$80 USD</h3>
-            <p class="text-gray-500 mb-8 leading-relaxed">Publish 4 versions<br><span class="font-bold text-[#0e380e] text-sm uppercase tracking-tighter">(4 ISBNs)</span></p>
+            <p class="text-gray-500 mb-8 leading-relaxed text-sm">Publish 4 versions<br><span class="font-bold text-[#0e380e] uppercase tracking-tighter">(4 ISBNs)</span></p>
             <a href="checkout.html" class="bg-[#C2B280] text-white px-12 py-4 rounded-md font-bold hover:bg-[#b0a070] transition-colors block shadow-md">Submit Book</a>
         </div>
     </div>
@@ -92,10 +92,10 @@
 <section class="py-24 bg-white">
     <div class="max-w-4xl mx-auto px-6 text-center">
         <div class="relative group w-full h-[360px] md:h-[480px] rounded-3xl overflow-hidden shadow-2xl">
-            <img src="https://img.youtube.com/vi/OZI7jktGCWM/maxresdefault.jpg" alt="Watch walkthrough" class="w-full h-full object-cover cursor-pointer" id="videoThumbnail">
+            <img src="https://img.youtube.com/vi/OZI7jktGCWM/maxresdefault.jpg" alt="Walkthrough" class="w-full h-full object-cover cursor-pointer" id="videoThumbnail">
             <div class="absolute inset-0 flex items-center justify-center">
-                <button id="playButton" class="bg-gradient-to-tr from-[#C2B280] to-[#b0a070] text-white p-6 rounded-full shadow-2xl pulse-animation flex items-center justify-center">
-                    <svg class="w-10 h-10 md:w-12 md:h-12" fill="currentColor" viewBox="0 0 24 24"><path d="M4 2v20l18-10L4 2z"/></svg>
+                <button id="playButton" class="bg-gradient-to-tr from-[#C2B280] to-[#b0a070] text-white p-6 rounded-full shadow-2xl pulse-animation">
+                    <svg class="w-12 h-12" fill="currentColor" viewBox="0 0 24 24"><path d="M4 2v20l18-10L4 2z"/></svg>
                 </button>
             </div>
         </div>
@@ -106,14 +106,14 @@
     <div class="max-w-7xl mx-auto flex flex-col md:flex-row items-center justify-between space-y-8 md:space-y-0 text-center md:text-left">
         
         <div class="flex-1">
-            <p class="serif text-xl font-bold tracking-wider uppercase">Clarinbridge Publishing</p>
-            <p class="text-gray-400 text-[10px] mt-2 uppercase tracking-[0.15em] leading-relaxed">
+            <p class="serif text-sm md:text-base font-bold tracking-[0.2em] uppercase">Clarinbridge Publishing</p>
+            <p class="text-gray-400 text-[9px] mt-2 uppercase tracking-[0.15em] leading-relaxed opacity-80">
                 © 2026 CLARINBRIDGE PUBLISHING SERVICES.<br>ALL RIGHTS RESERVED.
             </p>
         </div>
 
         <div class="flex-1 flex justify-center">
-            <a href="mailto:hello@ClarinbridgePublishing.com" class="text-gray-300 hover:text-[#C2B280] transition-colors font-semibold text-sm tracking-tight">
+            <a href="mailto:hello@ClarinbridgePublishing.com" class="text-gray-300 hover:text-[#C2B280] transition-colors font-semibold text-sm">
                 hello@ClarinbridgePublishing.com
             </a>
         </div>
@@ -128,7 +128,6 @@
                 Privacy Policy
             </a>
         </div>
-        
     </div>
 </footer>
 
