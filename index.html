@@ -17,7 +17,6 @@
     <style>
         body { font-family: 'Inter', sans-serif; }
         .serif { font-family: 'Playfair Display', serif; }
-        
         @keyframes pulse {
             0%, 100% { transform: scale(1); box-shadow: 0 0 30px rgba(194,178,128,0.6); }
             50% { transform: scale(1.05); box-shadow: 0 0 45px rgba(194,178,128,0.9); }
@@ -25,7 +24,6 @@
         .pulse-animation { animation: pulse 2s infinite; }
         .isbn-glow { text-shadow: 0 0 12px rgba(194, 178, 128, 0.4); }
 
-        /* Mobile Header Protection */
         @media (max-width: 400px) {
             .brand-text { font-size: 0.7rem !important; letter-spacing: 0.1em !important; }
             .phone-text { font-size: 0.65rem !important; }
@@ -48,7 +46,7 @@
 </header>
 
 <section class="relative w-full h-[380px] md:h-[550px] lg:h-[650px] mt-12 md:mt-16">
-    <img src="hero.png" class="absolute inset-0 w-full h-full object-cover" alt="Author on mountain" fetchpriority="high">
+    <img src="hero.png" class="absolute inset-0 w-full h-full object-cover" alt="Author" fetchpriority="high">
     <div class="absolute inset-0 bg-black/10"></div>
     <div class="relative z-10 flex items-start justify-center text-center pt-10 md:pt-20 px-4">
         <div class="bg-black/50 backdrop-blur-md px-6 md:px-8 py-3 rounded border border-white/20 inline-block shadow-2xl">
@@ -73,17 +71,17 @@
     <div class="max-w-6xl mx-auto px-6 grid md:grid-cols-3 gap-10">
         <div class="bg-white text-center p-10 rounded-2xl shadow-lg transition-all">
             <h3 class="text-4xl font-bold mb-2 text-gray-900">$25 USD</h3>
-            <p class="text-gray-500 mb-8 leading-relaxed text-sm">Publish 1 book<br><span class="font-bold text-[#0e380e] uppercase tracking-tighter">(1 ISBN)</span></p>
+            <p class="text-gray-500 mb-8 leading-relaxed text-sm">Publish 1 book<br><span class="font-bold text-[#0e380e] tracking-tighter">(1 ISBN)</span></p>
             <a href="checkout.html" class="bg-[#C2B280] text-white px-12 py-4 rounded-md font-bold hover:bg-[#b0a070] transition-colors block shadow-md">Submit Book</a>
         </div>
         <div class="bg-white text-center p-10 rounded-2xl shadow-xl ring-2 ring-[#C2B280]/20 transition-all">
             <h3 class="text-4xl font-bold mb-2 text-gray-900">$45 USD</h3>
-            <p class="text-gray-500 mb-8 leading-relaxed text-sm">Publish 2 versions<br><span class="font-bold text-[#0e380e] uppercase tracking-tighter">(2 ISBNs)</span></p>
+            <p class="text-gray-500 mb-8 leading-relaxed text-sm">Publish 2 versions<br><span class="font-bold text-[#0e380e] tracking-tighter">(2 ISBNs)</span></p>
             <a href="checkout.html" class="bg-[#0e380e] text-white px-12 py-4 rounded-md font-bold hover:bg-[#0a290a] transition-colors block shadow-md">Submit Book</a>
         </div>
         <div class="bg-white text-center p-10 rounded-2xl shadow-lg transition-all">
             <h3 class="text-4xl font-bold mb-2 text-gray-900">$80 USD</h3>
-            <p class="text-gray-500 mb-8 leading-relaxed text-sm">Publish 4 versions<br><span class="font-bold text-[#0e380e] uppercase tracking-tighter">(4 ISBNs)</span></p>
+            <p class="text-gray-500 mb-8 leading-relaxed text-sm">Publish 4 versions<br><span class="font-bold text-[#0e380e] tracking-tighter">(4 ISBNs)</span></p>
             <a href="checkout.html" class="bg-[#C2B280] text-white px-12 py-4 rounded-md font-bold hover:bg-[#b0a070] transition-colors block shadow-md">Submit Book</a>
         </div>
     </div>
@@ -104,20 +102,17 @@
 
 <footer class="bg-[#0e380e] text-white py-12 px-6">
     <div class="max-w-7xl mx-auto flex flex-col md:flex-row items-center justify-between space-y-8 md:space-y-0 text-center md:text-left">
-        
         <div class="flex-1">
             <p class="serif text-sm md:text-base font-bold tracking-[0.2em] uppercase">Clarinbridge Publishing</p>
-            <p class="text-gray-400 text-[9px] mt-2 uppercase tracking-[0.15em] leading-relaxed opacity-80">
-                © 2026 Clarinbridge Publishing Services.<br>ALL RIGHTS RESERVED.
+            <p class="text-gray-400 text-[10px] mt-2 tracking-wide leading-relaxed opacity-90">
+                © 2026 Clarinbridge Publishing Services.<br>All Rights Reserved.
             </p>
         </div>
-
         <div class="flex-1 flex justify-center">
             <a href="mailto:hello@ClarinbridgePublishing.com" class="text-gray-300 hover:text-[#C2B280] transition-colors font-semibold text-sm">
                 hello@ClarinbridgePublishing.com
             </a>
         </div>
-
         <div class="flex-1 flex flex-col items-center md:items-end space-y-4">
             <div class="flex items-center space-x-3 text-[9px] font-bold uppercase tracking-widest border border-white/20 px-4 py-1.5 rounded-full">
                 <span class="text-white">EN</span>
