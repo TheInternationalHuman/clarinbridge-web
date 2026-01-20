@@ -27,6 +27,11 @@
         .pulse-animation {
             animation: pulse 2s infinite;
         }
+
+        /* Subtle Glow for Hero Phrase */
+        .isbn-glow {
+            text-shadow: 0 0 12px rgba(194, 178, 128, 0.4);
+        }
     </style>
 </head>
 
@@ -54,9 +59,9 @@
     <div class="absolute inset-0 bg-black/10"></div>
 
     <div class="relative z-10 flex items-start justify-center text-center pt-10 md:pt-20 px-4">
-        <div class="bg-black/40 backdrop-blur-md px-8 py-3 rounded border border-white/20 inline-block shadow-2xl">
+        <div class="bg-black/50 backdrop-blur-md px-8 py-3 rounded border border-white/20 inline-block shadow-2xl">
             <p class="text-[10px] md:text-sm tracking-tight uppercase font-bold text-white leading-relaxed">
-                Avoid the scams. <span class="text-[#0e380e]">Obtain an official ISBN.</span> Keep all your profits.
+                Avoid the scams. <span class="text-[#C2B280] isbn-glow">Obtain an official ISBN.</span> Keep all your profits.
             </p>
         </div>
     </div>
@@ -65,10 +70,10 @@
 <section class="text-center pt-16 pb-8 md:py-20 px-4 max-w-4xl mx-auto">
     <div class="space-y-4 mb-10">
         <h2 class="serif text-3xl md:text-5xl font-bold text-gray-900">
-            Keep <span class="text-[#0e380e]">100%</span> of your copyright.
+            Keep <span class="text-[#0e380e]">100%</span> of your <span class="text-[#0e380e]">copyright</span>.
         </h2>
         <h2 class="serif text-3xl md:text-5xl font-bold text-gray-900">
-            Keep <span class="text-[#0e380e]">100%</span> of your <span class="text-[#0e380e]">royalties</span>.
+            Keep <span class="text-[#0e380e]">100%</span> of your <span class="text-[#C2B280]">royalties</span>.
         </h2>
         <h2 class="serif text-3xl md:text-5xl font-bold text-gray-900">
             We take <span class="text-red-700">ZERO</span> percent of your profits.
