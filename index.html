@@ -13,24 +13,9 @@
         body { font-family: 'Inter', sans-serif; }
         .serif { font-family: 'Playfair Display', serif; }
 
-        /* Header behavior */
         .site-header {
             transition: all 0.25s ease;
             border-bottom: none;
-        }
-
-        .site-header.shrink {
-            padding-top: inherit;
-            padding-bottom: inherit;
-            background-color: inherit;
-            border-bottom: none;
-        }
-
-        .site-header.shrink .brand,
-        .site-header.shrink .phone {
-            font-size: inherit;
-            font-family: inherit;
-            color: inherit;
         }
 
         /* FAQ styles */
@@ -50,7 +35,6 @@
             transform: rotate(45deg);
         }
 
-        /* Premium Play Button Pulse Animation */
         @keyframes pulse {
             0%, 100% { transform: scale(1); box-shadow: 0 0 30px rgba(194,178,128,0.6); }
             50% { transform: scale(1.05); box-shadow: 0 0 45px rgba(194,178,128,0.9); }
@@ -63,9 +47,9 @@
 
 <body class="bg-white text-gray-900 antialiased">
 
-<header id="siteHeader" class="site-header w-full bg-white/90 backdrop-blur-md fixed top-0 left-0 z-50">
+<header id="siteHeader" class="site-header w-full bg-white/90 backdrop-blur-md fixed top-0 left-0 z-50 border-b border-gray-100">
     <div class="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
-        <h1 class="brand serif text-[#0e380e] text-base tracking-widest uppercase">
+        <h1 class="brand serif text-[#0e380e] text-base md:text-lg tracking-widest uppercase">
             Clarinbridge Publishing
         </h1>
 
@@ -110,7 +94,6 @@
 
 <section class="bg-gray-50/80 border-y border-gray-100 py-24">
     <div class="max-w-6xl mx-auto px-6 grid md:grid-cols-3 gap-10">
-
         <div class="bg-white text-center p-10 rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-1">
             <h3 class="text-4xl font-bold mb-2 text-gray-900">$25 USD</h3>
             <p class="text-gray-500 mb-8 leading-relaxed">
@@ -121,7 +104,6 @@
                 Submit Book
             </a>
         </div>
-
         <div class="bg-white text-center p-10 rounded-2xl shadow-xl hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-1 ring-2 ring-[#C2B280]/20">
             <h3 class="text-4xl font-bold mb-2 text-gray-900">$45 USD</h3>
             <p class="text-gray-500 mb-8 leading-relaxed">
@@ -132,7 +114,6 @@
                 Submit Book
             </a>
         </div>
-
         <div class="bg-white text-center p-10 rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-1">
             <h3 class="text-4xl font-bold mb-2 text-gray-900">$80 USD</h3>
             <p class="text-gray-500 mb-8 leading-relaxed">
@@ -143,7 +124,6 @@
                 Submit Book
             </a>
         </div>
-
     </div>
 </section>
 
@@ -174,8 +154,9 @@
         </div>
 
         <div class="flex space-x-8 text-sm font-medium">
+            <a href="mailto:hello@ClarinbridgePublishing.com?subject=Inquiry%20About%20ISBN%20Services" 
+               class="text-gray-300 hover:text-[#C2B280] transition-colors font-bold uppercase tracking-widest">Contact Us</a>
             <a href="privacy.html" class="text-gray-300 hover:text-[#C2B280] transition-colors">Privacy Policy</a>
-            <a href="mailto:hello@ClarinbridgePublishing.com" class="text-gray-300 hover:text-[#C2B280] transition-colors">Contact</a>
         </div>
     </div>
 </footer>
