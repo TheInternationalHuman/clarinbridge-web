@@ -18,23 +18,6 @@
             border-bottom: none;
         }
 
-        /* FAQ styles */
-        .faq-answer {
-            max-height: 0;
-            opacity: 0;
-            overflow: hidden;
-            transition: all 0.3s ease-in-out;
-        }
-        .faq-item.active .faq-answer {
-            max-height: 300px;
-            padding: 20px;
-            opacity: 1;
-            border-top: 1px solid rgba(255,255,255,0.1);
-        }
-        .faq-item.active .faq-icon {
-            transform: rotate(45deg);
-        }
-
         @keyframes pulse {
             0%, 100% { transform: scale(1); box-shadow: 0 0 30px rgba(194,178,128,0.6); }
             50% { transform: scale(1.05); box-shadow: 0 0 45px rgba(194,178,128,0.9); }
@@ -53,8 +36,8 @@
             Clarinbridge Publishing
         </h1>
 
-        <a href="tel:+19728369225" class="phone text-sm font-semibold text-gray-700 hover:text-[#0e380e] transition-colors">
-            Text me today: <span class="text-[#0e380e]">+1 (972) 836-9225</span>
+        <a href="tel:+19728369225" class="phone text-right text-xs md:text-sm font-semibold text-gray-700 hover:text-[#0e380e] transition-colors leading-tight">
+            Text me today: <span class="block md:inline text-[#0e380e]">+1 (972) 836-9225</span>
         </a>
     </div>
 </header>
@@ -63,9 +46,9 @@
     <img src="hero.png" class="absolute inset-0 w-full h-full object-cover" alt="Author standing on a mountain">
     <div class="absolute inset-0 bg-black/10"></div>
 
-    <div class="relative z-10 flex items-start justify-center text-center pt-20 px-4">
+    <div class="relative z-10 flex items-start justify-center text-center pt-10 md:pt-20 px-4">
         <div class="bg-black/40 backdrop-blur-md px-8 py-3 rounded border border-white/20 inline-block shadow-2xl">
-            <p class="text-xs md:text-sm tracking-[0.2em] uppercase font-bold text-white">
+            <p class="text-[10px] md:text-sm tracking-[0.2em] uppercase font-bold text-white leading-relaxed">
                 Avoid the scams. Obtain an official ISBN. Keep all your profits.
             </p>
         </div>
@@ -131,7 +114,7 @@
     <div class="max-w-4xl mx-auto px-6 text-center">
         <div class="relative group w-full h-[360px] md:h-[480px] rounded-3xl overflow-hidden shadow-2xl">
             <img src="https://img.youtube.com/vi/OZI7jktGCWM/maxresdefault.jpg" 
-                 alt="Watch a Clarinbridge Publishing walkthrough video" 
+                 alt="Watch walkthrough" 
                  class="w-full h-full object-cover cursor-pointer" 
                  id="videoThumbnail">
             <div class="absolute inset-0 flex items-center justify-center">
@@ -146,17 +129,22 @@
     </div>
 </section>
 
-<footer class="bg-[#0e380e] text-white py-12 px-6">
+<footer class="bg-[#0e380e] text-white py-6 px-6">
     <div class="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center space-y-6 md:space-y-0">
         <div class="text-center md:text-left">
             <p class="serif text-lg font-bold tracking-wider">Clarinbridge Publishing</p>
             <p class="text-gray-400 text-xs mt-1">© 2026 Clarinbridge Publishing Services. All rights reserved.</p>
         </div>
 
-        <div class="flex space-x-8 text-sm font-medium">
+        <div class="text-center">
             <a href="mailto:hello@ClarinbridgePublishing.com?subject=Inquiry%20About%20ISBN%20Services" 
-               class="text-gray-300 hover:text-[#C2B280] transition-colors font-bold uppercase tracking-widest">Contact Us</a>
-            <a href="privacy.html" class="text-gray-300 hover:text-[#C2B280] transition-colors">Privacy Policy</a>
+               class="text-gray-300 hover:text-[#C2B280] transition-colors font-semibold text-sm">
+               Email us: hello@ClarinbridgePublishing.com
+            </a>
+        </div>
+
+        <div class="flex space-x-8 text-xs font-medium uppercase tracking-widest">
+            <a href="privacy.html" class="text-gray-400 hover:text-white transition-colors">Privacy Policy</a>
         </div>
     </div>
 </footer>
@@ -171,7 +159,6 @@
         iframe.allow = "accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture";
         iframe.allowFullscreen = true;
         iframe.className = "w-full h-full rounded-3xl shadow-2xl";
-
         const container = videoThumbnail.parentNode;
         container.innerHTML = "";
         container.appendChild(iframe);
