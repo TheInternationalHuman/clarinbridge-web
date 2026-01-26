@@ -140,63 +140,45 @@
     </main>
 
     <script>
-        // Use document.addEventListener to ensure the DOM is fully loaded before the script runs
         document.addEventListener('DOMContentLoaded', function() {
-            const STRIPE_PUBLISHABLE_KEY = 'pk_live_51SsoGeEK61VLMH4nczA0e00ZKdNrUoNy1GCgmWo7z7pqC8YQWQvwnNNA5SZLJp3y4ulv7kQ4nSsVVZKFwrJm6LpK00oDTDqwOB';
-            const PRICE_ID_25 = 'price_1StVpVEK61VLMH4nR1VvScMR';
-            const PRICE_ID_45 = 'price_1StvgYEK61VLMH4n50MNBSVO';
-            const PRICE_ID_55 = 'price_1Stvk3EK61VLMH4noZlNg7OQ';
-
-            const stripe = Stripe(STRIPE_PUBLISHABLE_KEY);
+            const stripe = Stripe('pk_live_51SsoGeEK61VLMH4nczA0e00ZKdNrUoNy1GCgmWo7z7pqC8YQWQvwnNNA5SZLJp3y4ulv7kQ4nSsVVZKFwrJm6LpK00oDTDqwOB');
             const params = new URLSearchParams(window.location.search);
             const plan = params.get('plan');
-            const planName = document.getElementById('plan-name');
-            const totalPrice = document.getElementById('total-price');
-            const stripeBtn = document.getElementById('stripe-link');
+            
+            let amount = 2500; // $25.00 in cents
+            let name = 'ISBN Reservation (1 Book)';
 
-            let selectedPriceId = '';
-
-            // Handle plan selection based on URL parameter
             if(plan === '2') {
-                totalPrice.innerText = '$45.00';
-                planName.innerText = '2x ISBN Reservations';
-                selectedPriceId = PRICE_ID_45;
+                amount = 4500;
+                name = '2x ISBN Reservations';
+                document.getElementById('total-price').innerText = '$45.00';
+                document.getElementById('plan-name').innerText = name;
             } else if(plan === '3') {
-                totalPrice.innerText = '$55.00';
-                planName.innerText = '3x ISBN Reservations';
-                selectedPriceId = PRICE_ID_55;
-            } else {
-                totalPrice.innerText = '$25.00';
-                planName.innerText = 'ISBN Reservation';
-                selectedPriceId = PRICE_ID_25;
+                amount = 5500;
+                name = '3x ISBN Reservations';
+                document.getElementById('total-price').innerText = '$55.00';
+                document.getElementById('plan-name').innerText = name;
             }
 
-            // Function to trigger Stripe Checkout
-            async function handleCheckout() {
-                const { error } = await stripe.redirectToCheckout({
-                    lineItems: [{ price: selectedPriceId, quantity: 1 }],
+            document.getElementById('stripe-link').addEventListener('click', function(e) {
+                e.preventDefault();
+                stripe.redirectToCheckout({
+                    lineItems: [{
+                        price_data: {
+                            currency: 'usd',
+                            product_data: { name: name },
+                            unit_amount: amount,
+                        },
+                        quantity: 1,
+                    }],
                     mode: 'payment',
-                    paymentIntentData: {
-                        capture_method: 'manual', // Keeps the "Hold" logic active
+                    payment_intent_data: {
+                        capture_method: 'manual', // THIS IS THE HOLD LOGIC
                     },
                     successUrl: window.location.origin + '/success.html',
                     cancelUrl: window.location.origin + '/checkout.html',
                 });
-
-                if (error) {
-                    console.error("Stripe Error:", error.message);
-                    alert("Security connection failed. Please try again.");
-                }
-            }
-
-            // Attach event listener only if button exists
-            if (stripeBtn) {
-                stripeBtn.addEventListener('click', function(e) {
-                    e.preventDefault();
-                    e.stopPropagation(); // Prevents bubbling issues
-                    handleCheckout();
-                });
-            }
+            });
         });
     </script>
 </body>
