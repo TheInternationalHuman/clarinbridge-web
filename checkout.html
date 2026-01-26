@@ -140,14 +140,10 @@
     </main>
 
     <script>
-        // ==========================================
-        // Price keys & publishable key
-        // ==========================================
         const STRIPE_PUBLISHABLE_KEY = 'pk_live_51SsoGeEK61VLMH4nczA0e00ZKdNrUoNy1GCgmWo7z7pqC8YQWQvwnNNA5SZLJp3y4ulv7kQ4nSsVVZKFwrJm6LpK00oDTDqwOB';
         const PRICE_ID_25 = 'price_1StVpVEK61VLMH4nR1VvScMR';
         const PRICE_ID_45 = 'price_1StvgYEK61VLMH4n50MNBSVO';
-        const PRICE_ID_80 = 'price_1Stvk3EK61VLMH4noZlNg7OQ';
-        // ==========================================
+        const PRICE_ID_55 = 'price_1Stvk3EK61VLMH4noZlNg7OQ'; // Updated for $55 package
 
         const stripe = Stripe(STRIPE_PUBLISHABLE_KEY);
         const params = new URLSearchParams(window.location.search);
@@ -158,16 +154,17 @@
 
         let selectedPriceId = '';
 
-        // Set Plan Details
+        // FIXED LOGIC: Ensures URL parameters match exactly
         if(plan === '2') {
             totalPrice.innerText = '$45.00';
             planName.innerText = '2x ISBN Reservations';
             selectedPriceId = PRICE_ID_45;
-        } else if(plan === '4') {
-            totalPrice.innerText = '$80.00';
-            planName.innerText = '4x ISBN Reservations';
-            selectedPriceId = PRICE_ID_80;
+        } else if(plan === '3') {
+            totalPrice.innerText = '$55.00';
+            planName.innerText = '3x ISBN Reservations';
+            selectedPriceId = PRICE_ID_55;
         } else {
+            // Default to $25
             totalPrice.innerText = '$25.00';
             planName.innerText = 'ISBN Reservation';
             selectedPriceId = PRICE_ID_25;
@@ -178,7 +175,7 @@
                 lineItems: [{ price: selectedPriceId, quantity: 1 }],
                 mode: 'payment',
                 paymentIntentData: {
-                    capture_method: 'manual', // This creates the "Hold"
+                    capture_method: 'manual', 
                 },
                 successUrl: window.location.origin + '/success.html',
                 cancelUrl: window.location.origin + '/checkout.html',
