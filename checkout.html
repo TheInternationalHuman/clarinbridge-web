@@ -144,41 +144,53 @@
             const stripe = Stripe('pk_live_51SsoGeEK61VLMH4nczA0e00ZKdNrUoNy1GCgmWo7z7pqC8YQWQvwnNNA5SZLJp3y4ulv7kQ4nSsVVZKFwrJm6LpK00oDTDqwOB');
             const params = new URLSearchParams(window.location.search);
             const plan = params.get('plan');
-            
-            let amount = 2500; // $25.00 in cents
-            let name = 'ISBN Reservation (1 Book)';
+            const planName = document.getElementById('plan-name');
+            const totalPrice = document.getElementById('total-price');
+            const stripeBtn = document.getElementById('stripe-link');
+
+            // Default values
+            let amountCents = 2500;
+            let currentName = 'ISBN Reservation';
 
             if(plan === '2') {
-                amount = 4500;
-                name = '2x ISBN Reservations';
-                document.getElementById('total-price').innerText = '$45.00';
-                document.getElementById('plan-name').innerText = name;
+                amountCents = 4500;
+                currentName = '2x ISBN Reservations';
+                totalPrice.innerText = '$45.00';
+                planName.innerText = currentName;
             } else if(plan === '3') {
-                amount = 5500;
-                name = '3x ISBN Reservations';
-                document.getElementById('total-price').innerText = '$55.00';
-                document.getElementById('plan-name').innerText = name;
+                amountCents = 5500;
+                currentName = '3x ISBN Reservations';
+                totalPrice.innerText = '$55.00';
+                planName.innerText = currentName;
             }
 
-            document.getElementById('stripe-link').addEventListener('click', function(e) {
-                e.preventDefault();
-                stripe.redirectToCheckout({
-                    lineItems: [{
-                        price_data: {
-                            currency: 'usd',
-                            product_data: { name: name },
-                            unit_amount: amount,
+            if (stripeBtn) {
+                stripeBtn.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    
+                    // FIXED: Using price_data instead of price ID to allow capture_method
+                    stripe.redirectToCheckout({
+                        lineItems: [{
+                            price_data: {
+                                currency: 'usd',
+                                product_data: { name: currentName },
+                                unit_amount: amountCents,
+                            },
+                            quantity: 1 
+                        }],
+                        mode: 'payment',
+                        payment_intent_data: {
+                            capture_method: 'manual', // Keeps the "Hold" logic active
                         },
-                        quantity: 1,
-                    }],
-                    mode: 'payment',
-                    payment_intent_data: {
-                        capture_method: 'manual', // THIS IS THE HOLD LOGIC
-                    },
-                    successUrl: window.location.origin + '/success.html',
-                    cancelUrl: window.location.origin + '/checkout.html',
+                        successUrl: window.location.origin + '/success.html',
+                        cancelUrl: window.location.origin + '/checkout.html',
+                    }).then(function(result) {
+                        if (result.error) {
+                            alert(result.error.message);
+                        }
+                    });
                 });
-            });
+            }
         });
     </script>
 </body>
