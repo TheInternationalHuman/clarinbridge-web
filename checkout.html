@@ -140,57 +140,57 @@
     </main>
 
     <script>
-        const STRIPE_PUBLISHABLE_KEY = 'pk_live_51SsoGeEK61VLMH4nczA0e00ZKdNrUoNy1GCgmWo7z7pqC8YQWQvwnNNA5SZLJp3y4ulv7kQ4nSsVVZKFwrJm6LpK00oDTDqwOB';
-        const PRICE_ID_25 = 'price_1StVpVEK61VLMH4nR1VvScMR';
-        const PRICE_ID_45 = 'price_1StvgYEK61VLMH4n50MNBSVO';
-        const PRICE_ID_55 = 'price_1Stvk3EK61VLMH4noZlNg7OQ'; // Updated for $55 package
+        window.onload = function() {
+            const STRIPE_PUBLISHABLE_KEY = 'pk_live_51SsoGeEK61VLMH4nczA0e00ZKdNrUoNy1GCgmWo7z7pqC8YQWQvwnNNA5SZLJp3y4ulv7kQ4nSsVVZKFwrJm6LpK00oDTDqwOB';
+            const PRICE_ID_25 = 'price_1StVpVEK61VLMH4nR1VvScMR';
+            const PRICE_ID_45 = 'price_1StvgYEK61VLMH4n50MNBSVO';
+            const PRICE_ID_55 = 'price_1Stvk3EK61VLMH4noZlNg7OQ';
 
-        const stripe = Stripe(STRIPE_PUBLISHABLE_KEY);
-        const params = new URLSearchParams(window.location.search);
-        const plan = params.get('plan');
-        const planName = document.getElementById('plan-name');
-        const totalPrice = document.getElementById('total-price');
-        const stripeBtn = document.getElementById('stripe-link');
+            const stripe = Stripe(STRIPE_PUBLISHABLE_KEY);
+            const params = new URLSearchParams(window.location.search);
+            const plan = params.get('plan');
+            const planName = document.getElementById('plan-name');
+            const totalPrice = document.getElementById('total-price');
+            const stripeBtn = document.getElementById('stripe-link');
 
-        let selectedPriceId = '';
+            let selectedPriceId = '';
 
-        // FIXED LOGIC: Ensures URL parameters match exactly
-        if(plan === '2') {
-            totalPrice.innerText = '$45.00';
-            planName.innerText = '2x ISBN Reservations';
-            selectedPriceId = PRICE_ID_45;
-        } else if(plan === '3') {
-            totalPrice.innerText = '$55.00';
-            planName.innerText = '3x ISBN Reservations';
-            selectedPriceId = PRICE_ID_55;
-        } else {
-            // Default to $25
-            totalPrice.innerText = '$25.00';
-            planName.innerText = 'ISBN Reservation';
-            selectedPriceId = PRICE_ID_25;
-        }
-
-        async function handleCheckout() {
-            const { error } = await stripe.redirectToCheckout({
-                lineItems: [{ price: selectedPriceId, quantity: 1 }],
-                mode: 'payment',
-                paymentIntentData: {
-                    capture_method: 'manual', 
-                },
-                successUrl: window.location.origin + '/success.html',
-                cancelUrl: window.location.origin + '/checkout.html',
-            });
-
-            if (error) {
-                console.error("Stripe Error:", error.message);
-                alert("Security connection failed. Please try again.");
+            if(plan === '2') {
+                totalPrice.innerText = '$45.00';
+                planName.innerText = '2x ISBN Reservations';
+                selectedPriceId = PRICE_ID_45;
+            } else if(plan === '3') {
+                totalPrice.innerText = '$55.00';
+                planName.innerText = '3x ISBN Reservations';
+                selectedPriceId = PRICE_ID_55;
+            } else {
+                totalPrice.innerText = '$25.00';
+                planName.innerText = 'ISBN Reservation';
+                selectedPriceId = PRICE_ID_25;
             }
-        }
 
-        stripeBtn.addEventListener('click', (e) => {
-            e.preventDefault();
-            handleCheckout();
-        });
+            async function handleCheckout() {
+                const { error } = await stripe.redirectToCheckout({
+                    lineItems: [{ price: selectedPriceId, quantity: 1 }],
+                    mode: 'payment',
+                    paymentIntentData: {
+                        capture_method: 'manual', 
+                    },
+                    successUrl: window.location.origin + '/success.html',
+                    cancelUrl: window.location.origin + '/checkout.html',
+                });
+
+                if (error) {
+                    console.error("Stripe Error:", error.message);
+                    alert("Security connection failed. Please try again.");
+                }
+            }
+
+            stripeBtn.addEventListener('click', (e) => {
+                e.preventDefault();
+                handleCheckout();
+            });
+        };
     </script>
 </body>
 </html>
