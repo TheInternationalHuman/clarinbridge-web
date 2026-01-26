@@ -45,14 +45,17 @@
                     </div>
                     <h2 class="serif text-2xl md:text-4xl mb-4 text-gray-900 leading-tight">Finalize Your Registration</h2>
                     <p class="text-gray-600 text-sm md:text-lg leading-relaxed mb-6">
-                        We are currently updating our automated checkout page and payment terminal to serve you better. In the meantime, we are managing all registrations manually to ensure a seamless experience. The benefit is that a dedicated team member will personally oversee your account from this point forward. To proceed, please send a text message or email.                    </p>
+                        We are currently updating our automated checkout page and payment terminal to serve you better. In the meantime, we are managing all registrations manually to ensure a seamless experience. The benefit is that a dedicated team member will personally oversee your account from this point forward. To proceed, please send a text message or email.
+                    </p>
                 </div>
 
-                <div class="relative group rounded-2xl overflow-hidden shadow-lg border border-gray-200 aspect-video bg-gray-100">
-                    <img src="https://img.youtube.com/vi/vtHL5voLSnc/maxresdefault.jpg" class="w-full h-full object-cover opacity-80" alt="Review Process">
-                    <div class="absolute inset-0 flex items-center justify-center">
-                        <div class="bg-[#0e380e] text-white p-3 rounded-full shadow-xl"><svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24"><path d="M4 2v20l18-10L4 2z"/></svg></div>
-                        <p class="absolute bottom-4 text-white text-[10px] font-bold tracking-widest uppercase bg-black/40 px-3 py-1 rounded">Watch: The Review Process</p>
+                <div id="video-container" class="relative group rounded-2xl overflow-hidden shadow-lg border border-gray-200 aspect-video bg-gray-100 cursor-pointer">
+                    <img id="video-thumbnail" src="https://img.youtube.com/vi/vtHL5voLSnc/maxresdefault.jpg" class="w-full h-full object-cover opacity-80" alt="Review Process">
+                    <div id="play-overlay" class="absolute inset-0 flex items-center justify-center">
+                        <div class="bg-[#0e380e] text-white p-4 rounded-full shadow-xl hover:scale-110 transition-transform">
+                            <svg class="w-8 h-8" fill="currentColor" viewBox="0 0 24 24"><path d="M4 2v20l18-10L4 2z"/></svg>
+                        </div>
+                        <p class="absolute bottom-4 text-white text-[10px] font-bold tracking-widest uppercase bg-black/40 px-3 py-1 rounded">Click to Watch: The Review Process</p>
                     </div>
                 </div>
             </div>
@@ -134,6 +137,7 @@
 
     <script>
         document.addEventListener('DOMContentLoaded', function() {
+            // Plan and Pricing logic
             const params = new URLSearchParams(window.location.search);
             const plan = params.get('plan');
             const planName = document.getElementById('plan-name');
@@ -148,6 +152,14 @@
             } else {
                 totalPrice.innerText = '$25.00';
                 planName.innerText = 'ISBN Reservation';
+            }
+
+            // Video Playback logic
+            const videoContainer = document.getElementById('video-container');
+            if (videoContainer) {
+                videoContainer.addEventListener('click', function() {
+                    videoContainer.innerHTML = `<iframe class="w-full h-full" src="https://www.youtube.com/embed/vtHL5voLSnc?autoplay=1" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>`;
+                });
             }
         });
     </script>
