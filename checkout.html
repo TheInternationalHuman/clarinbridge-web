@@ -148,7 +148,6 @@
             const totalPrice = document.getElementById('total-price');
             const stripeBtn = document.getElementById('stripe-link');
 
-            // Default values
             let amountCents = 2500;
             let currentName = 'ISBN Reservation';
 
@@ -167,8 +166,7 @@
             if (stripeBtn) {
                 stripeBtn.addEventListener('click', function(e) {
                     e.preventDefault();
-                    
-                    // FIXED: Using price_data instead of price ID to allow capture_method
+
                     stripe.redirectToCheckout({
                         lineItems: [{
                             price_data: {
@@ -179,9 +177,6 @@
                             quantity: 1 
                         }],
                         mode: 'payment',
-                        payment_intent_data: {
-                            capture_method: 'manual', // Keeps the "Hold" logic active
-                        },
                         successUrl: window.location.origin + '/success.html',
                         cancelUrl: window.location.origin + '/checkout.html',
                     }).then(function(result) {
