@@ -37,7 +37,6 @@
 
     <main class="max-w-6xl mx-auto px-6 py-12 md:py-20">
         <div class="grid lg:grid-cols-12 gap-12 items-stretch">
-            
             <div class="lg:col-span-7 flex flex-col">
                 <div class="mb-4">
                     <div class="inline-flex items-center space-x-2 bg-[#C2B280]/10 px-3 py-1 rounded-full mb-6">
@@ -62,9 +61,7 @@
             <div class="lg:col-span-5">
                 <div class="bg-white px-8 py-8 rounded-2xl shadow-2xl border border-gray-50 relative overflow-hidden sync-box">
                     <div class="absolute top-0 left-0 w-full h-1 bg-[#C2B280]"></div>
-                    
                     <h3 class="serif text-2xl text-[#0e380e] tracking-tight">Summary</h3>
-                    
                     <div class="flex-grow flex flex-col justify-around py-4">
                         <div class="border-b border-gray-100 pb-2">
                             <p id="plan-name" class="font-bold text-gray-900 uppercase tracking-tight text-lg">ISBN Reservation</p>
@@ -139,53 +136,59 @@
         </footer>
     </main>
 
+    <!-- ✅ Updated Stripe Worker script with CORS handling -->
     <script>
-        document.addEventListener('DOMContentLoaded', function() {
-            const stripe = Stripe('pk_live_51SsoGeEK61VLMH4nczA0e00ZKdNrUoNy1GCgmWo7z7pqC8YQWQvwnNNA5SZLJp3y4ulv7kQ4nSsVVZKFwrJm6LpK00oDTDqwOB');
-            const params = new URLSearchParams(window.location.search);
-            const plan = params.get('plan');
-            const planName = document.getElementById('plan-name');
-            const totalPrice = document.getElementById('total-price');
-            const stripeBtn = document.getElementById('stripe-link');
+    document.addEventListener('DOMContentLoaded', function() {
+        const stripe = Stripe('pk_live_51SsoGeEK61VLMH4nczA0e00ZKdNrUoNy1GCgmWo7z7pqC8YQWQvwnNNA5SZLJp3y4ulv7kQ4nSsVVZKFwrJm6LpK00oDTDqwOB');
+        const params = new URLSearchParams(window.location.search);
+        const plan = params.get('plan');
+        const planName = document.getElementById('plan-name');
+        const totalPrice = document.getElementById('total-price');
+        const stripeBtn = document.getElementById('stripe-link');
 
-            let amountCents = 2500;
-            let currentName = 'ISBN Reservation';
+        let amountCents = 2500;
+        let currentName = 'ISBN Reservation';
 
-            if(plan === '2') {
-                amountCents = 4500;
-                currentName = '2x ISBN Reservations';
-                totalPrice.innerText = '$45.00';
-                planName.innerText = currentName;
-            } else if(plan === '3') {
-                amountCents = 5500;
-                currentName = '3x ISBN Reservations';
-                totalPrice.innerText = '$55.00';
-                planName.innerText = currentName;
-            }
+        if(plan === '2') {
+            amountCents = 4500;
+            currentName = '2x ISBN Reservations';
+            totalPrice.innerText = '$45.00';
+            planName.innerText = currentName;
+        } else if(plan === '3') {
+            amountCents = 5500;
+            currentName = '3x ISBN Reservations';
+            totalPrice.innerText = '$55.00';
+            planName.innerText = currentName;
+        }
 
-            if (stripeBtn) {
-                stripeBtn.addEventListener('click', async function(e) {
-                    e.preventDefault();
+        if (stripeBtn) {
+            stripeBtn.addEventListener('click', async function(e) {
+                e.preventDefault();
 
-                    try {
-                        const response = await fetch('https://payment-hold-1.zazulak44.workers.dev', { 
-                            method: 'POST',
-                            headers: { 'Content-Type': 'application/json' },
-                            body: JSON.stringify({ 
-                                amount: amountCents,
-                                description: currentName
-                            })
-                        });
-                        const data = await response.json();
-                        console.log('Worker response:', data);
-                        window.location.href = '/thank-you.html';
-                    } catch (error) {
-                        console.error('Error calling Worker:', error);
-                        alert('Something went wrong. Please try again.');
-                    }
-                });
-            }
-        });
-    </script>
-</body>
-</html>
+                try {
+                    const response = await fetch('https://payment-hold-1.zazulak44.workers.dev', { 
+                        method: 'POST',
+                        headers: { 
+                            'Content-Type': 'application/json',
+                            'Accept': 'application/json'
+                        },
+                        body: JSON.stringify({ 
+                            amount: amountCents,
+                            description: currentName
+                        })
+                    });
+
+                    if (!response.ok) throw new Error('Worker returned an error');
+
+                    const data = await response.json();
+                    console.log('Worker response:', data);
+
+                    // Redirect to your thank you page
+                    window.location.href = '/thank-you.html';
+                } catch (error) {
+                    console.error('Error calling Worker:', error);
+                    alert('Something went wrong. Please try again.');
+                }
+            });
+        }
+    });
