@@ -36,39 +36,40 @@
             <div class="w-12 h-1 bg-[#C2B280] mx-auto mt-4"></div>
         </div>
 
-        <!-- CHANGE IS HERE -->
-        <form action="form action="https://manuscript-handler.zazulak44.workers.dev" method="POST" class="space-y-6">
+        <!-- Updated FormSubmit form -->
+        <form action="https://formsubmit.co/hello@clarinbridgepublishing.com" method="POST" class="space-y-6">
+            <input type="hidden" name="_captcha" value="false">
             
             <div>
                 <label class="block text-xs font-bold uppercase tracking-widest text-gray-500 mb-2">Author Name / Pseudonym</label>
-                <input type="text" name="author_name" required
-                    class="w-full px-4 py-4 rounded-xl border border-gray-100 bg-gray-50 focus:ring-2 focus:ring-[#C2B280] focus:bg-white outline-none transition-all"
+                <input type="text" name="author_name" required 
+                    class="w-full px-4 py-4 rounded-xl border border-gray-100 bg-gray-50 focus:ring-2 focus:ring-[#C2B280] focus:bg-white outline-none transition-all" 
                     placeholder="Jane Doe (or your pen name)">
             </div>
 
             <div>
                 <label class="block text-xs font-bold uppercase tracking-widest text-gray-500 mb-2">Contact Email</label>
-                <input type="email" name="author_email" required
-                    class="w-full px-4 py-4 rounded-xl border border-gray-100 bg-gray-50 focus:ring-2 focus:ring-[#C2B280] focus:bg-white outline-none transition-all"
+                <input type="email" name="author_email" required 
+                    class="w-full px-4 py-4 rounded-xl border border-gray-100 bg-gray-50 focus:ring-2 focus:ring-[#C2B280] focus:bg-white outline-none transition-all" 
                     placeholder="jane@example.com">
             </div>
 
             <div>
                 <label class="block text-xs font-bold uppercase tracking-widest text-gray-500 mb-2">Google Drive Link (Entire Book)</label>
                 <p class="text-[10px] text-gray-400 mb-2 italic">Please ensure sharing is set to "Anyone with the link can view"</p>
-                <input type="url" name="drive_link" required
-                    class="w-full px-4 py-4 rounded-xl border border-gold/30 bg-gray-50 focus:ring-2 focus:ring-[#0e380e] outline-none transition-all"
+                <input type="url" name="drive_link" required 
+                    class="w-full px-4 py-4 rounded-xl border border-gold/30 bg-gray-50 focus:ring-2 focus:ring-[#0e380e] outline-none transition-all" 
                     placeholder="https://drive.google.com/...">
             </div>
 
             <div>
                 <label class="block text-xs font-bold uppercase tracking-widest text-gray-500 mb-2">Additional Notes</label>
-                <textarea name="notes" rows="4"
-                    class="w-full px-4 py-4 rounded-xl border border-gray-100 bg-gray-50 focus:ring-2 focus:ring-[#C2B280] focus:bg-white outline-none transition-all"
+                <textarea name="notes" rows="4" 
+                    class="w-full px-4 py-4 rounded-xl border border-gray-100 bg-gray-50 focus:ring-2 focus:ring-[#C2B280] focus:bg-white outline-none transition-all" 
                     placeholder="Any specific instructions or context for our review..."></textarea>
             </div>
 
-            <button type="submit"
+            <button type="submit" 
                 class="w-full bg-[#0e380e] text-white py-5 rounded-xl font-bold tracking-[0.2em] uppercase hover:bg-[#1a4a1a] shadow-xl transform hover:-translate-y-1 transition-all">
                 Submit Manuscript
             </button>
