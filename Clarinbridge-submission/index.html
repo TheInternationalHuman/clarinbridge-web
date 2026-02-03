@@ -36,9 +36,14 @@
       <div class="w-12 h-1 bg-[#C2B280] mx-auto mt-4"></div>
     </div>
 
-    <!-- Netlify Form -->
-    <form name="manuscript-submission" method="POST" data-netlify="true" class="space-y-6">
+    <!-- Netlify form -->
+    <form name="manuscript-submission" method="POST" data-netlify="true" netlify-honeypot="bot-field" class="space-y-6">
+      
+      <!-- Honeypot field for spam -->
       <input type="hidden" name="form-name" value="manuscript-submission">
+      <p class="hidden">
+        <label>Don’t fill this out if you’re human: <input name="bot-field"></label>
+      </p>
 
       <div>
         <label class="block text-xs font-bold uppercase tracking-widest text-gray-500 mb-2">Author Name / Pseudonym</label>
