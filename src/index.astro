@@ -1,3 +1,5 @@
+---
+---
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -11,7 +13,6 @@
     <link rel="alternate" hreflang="x-default" href="https://clarinbridge.com/" />
 
     <link rel="preload" as="image" href="/hero.png">
-    <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
 
     <style>
@@ -60,7 +61,7 @@
 <section class="text-center pt-16 pb-8 md:py-20 px-4 max-w-4xl mx-auto">
     <div class="space-y-4 mb-10">
         <h2 class="serif text-2xl md:text-5xl font-bold text-gray-900">Keep <span class="text-[#0e380e]">100%</span> of your <span class="text-[#0e380e]">copyright</span>.</h2>
-        <h2 class="serif text-2xl md:text-5xl font-bold text-gray-900">Keep <span class="text-[#0e380e]">100%</span> of your <span class="text-[#C2B280]">royalties</span>.</h2>
+        <h2 class="serif text-2xl md:text-5xl font-bold text-gray-900">Keep <span class="text-[#0e380e]">100%</span> of your <span class="text-[#0e380e]">royalties</span>.</h2>
         <h2 class="serif text-2xl md:text-5xl font-bold text-gray-900">We take <span class="text-red-700">ZERO</span> percent of your profits.</h2>
     </div>
     <div class="w-16 h-1 bg-[#C2B280] mx-auto mb-8"></div>
@@ -142,19 +143,21 @@
     </div>
 </footer>
 
-<script>
+<script is:inline>
     const playButton = document.getElementById('playButton');
     const videoThumbnail = document.getElementById('videoThumbnail');
-    playButton.addEventListener('click', () => {
-        const iframe = document.createElement('iframe');
-        iframe.src = "https://www.youtube.com/embed/OZI7jktGCWM?autoplay=1&rel=0";
-        iframe.allow = "accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture";
-        iframe.allowFullscreen = true;
-        iframe.className = "w-full h-full rounded-3xl shadow-2xl";
-        const container = videoThumbnail.parentNode;
-        container.innerHTML = "";
-        container.appendChild(iframe);
-    });
+    if (playButton && videoThumbnail) {
+        playButton.addEventListener('click', () => {
+            const iframe = document.createElement('iframe');
+            iframe.src = "https://www.youtube.com/embed/OZI7jktGCWM?autoplay=1&rel=0";
+            iframe.allow = "accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture";
+            iframe.allowFullscreen = true;
+            iframe.className = "w-full h-full rounded-3xl shadow-2xl";
+            const container = videoThumbnail.parentNode;
+            container.innerHTML = "";
+            container.appendChild(iframe);
+        });
+    }
 </script>
 
 </body>
