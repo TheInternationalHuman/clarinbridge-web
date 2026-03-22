@@ -51,10 +51,12 @@
                 </p>
             </div>
 
-            <div class="relative group rounded-2xl overflow-hidden shadow-lg border border-gray-200 aspect-video bg-gray-100">
+            <div class="relative group rounded-2xl overflow-hidden shadow-lg border border-gray-200 aspect-video bg-gray-100" id="videoContainer">
                 <img src="https://img.youtube.com/vi/vtHL5voLSnc/maxresdefault.jpg" class="w-full h-full object-cover opacity-80" alt="Review Process">
-                <div class="absolute inset-0 flex items-center justify-center">
-                    <div class="bg-[#0e380e] text-white p-3 rounded-full shadow-xl"><svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24"><path d="M4 2v20l18-10L4 2z"/></svg></div>
+                <div class="absolute inset-0 flex items-center justify-center" id="playOverlay">
+                    <button id="playButton" class="bg-[#0e380e] text-white p-3 rounded-full shadow-xl hover:bg-[#1a4a1a] transition-colors cursor-pointer">
+                        <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24"><path d="M4 2v20l18-10L4 2z"/></svg>
+                    </button>
                     <p class="absolute bottom-4 text-white text-[10px] font-bold tracking-widest uppercase bg-black/40 px-3 py-1 rounded">Watch: The Review Process</p>
                 </div>
             </div>
@@ -160,6 +162,20 @@ document.addEventListener('DOMContentLoaded', function() {
         currentName = '3x ISBN Reservations';
         totalPrice.innerText = '$55.00';
         planName.innerText = currentName;
+    }
+
+    const playButton = document.getElementById('playButton');
+    const videoContainer = document.getElementById('videoContainer');
+    if (playButton && videoContainer) {
+        playButton.addEventListener('click', () => {
+            const iframe = document.createElement('iframe');
+            iframe.src = "https://www.youtube.com/embed/vtHL5voLSnc?autoplay=1&rel=0";
+            iframe.allow = "accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture";
+            iframe.allowFullscreen = true;
+            iframe.className = "w-full h-full";
+            videoContainer.innerHTML = "";
+            videoContainer.appendChild(iframe);
+        });
     }
 
     if (stripeBtn) {
