@@ -1,0 +1,41 @@
+---
+const { frontmatter } = Astro.props;
+---
+<!DOCTYPE html>
+<html lang={frontmatter.lang || "en"}>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{frontmatter.title}</title>
+    <meta name="description" content={frontmatter.description}>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        body { font-family: 'Inter', sans-serif; }
+        .serif { font-family: 'Playfair Display', serif; }
+    </style>
+</head>
+<body class="bg-white text-gray-900 antialiased">
+
+    <header class="w-full bg-white/95 fixed top-0 left-0 z-50 border-b border-gray-100">
+        <div class="max-w-7xl mx-auto px-6 py-3 md:py-4 flex items-center justify-between">
+            <a href="/" class="serif text-[#0e380e] text-sm md:text-lg tracking-widest uppercase font-bold">
+                Clarinbridge Publishing
+            </a>
+        </div>
+    </header>
+
+    <main class="max-w-3xl mx-auto px-6 pt-28 pb-20">
+        <h1 class="serif text-3xl md:text-5xl font-bold text-gray-900 mb-6">{frontmatter.title}</h1>
+        <div class="prose prose-lg max-w-none text-gray-700 leading-relaxed">
+            <slot />
+        </div>
+    </main>
+
+    <footer class="bg-[#0e380e] text-white py-8 px-6 text-center">
+        <p class="serif text-sm tracking-widest uppercase">Clarinbridge Publishing</p>
+        <p class="text-gray-400 text-xs mt-2">© 2026 Clarinbridge Publishing Services. All Rights Reserved.</p>
+    </footer>
+
+</body>
+</html>
